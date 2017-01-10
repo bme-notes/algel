@@ -1,0 +1,75 @@
+\section{5. előadás}
+\subsection{Turing gép}
+
+\begin{definicio}{Mézga Géza}
+  	\textbf{Diagonál nyelv ($L_d$)} \\[3pt]
+	 $w \in \lbrace 0,1 \rbrace^*$ ami egy TG leírása, w $\not\in L(M_w)$
+
+	 ($M_w$ a w bemenetet nem fogadja el, vagyis TG a saját leírását nem fogadja el)\\[0pt]
+\end{definicio}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   Nincs olyan TG ami a Diagonál nyelvet fogadja el \\[3pt]
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ Tegyük fel hogy van ilyen. Az M TG az $L_d$ nyelvet fogadja el. L(M) = $L_d$. Mivel M TG $\Rightarrow$ van leírása: Legyen ez x ($M = M_x$)
+
+	\begin{enumerate}[itemsep=0 mm]
+		\item Ha $x \in L_d \Rightarrow$ $x \not\in L(M_x) = L_d$ - Ellentmondás nem fogadja el X et, de a diagonál nyelv része, tehát elkéne fogadnia
+		\item Ha $x \not\in L_d \Rightarrow$ $x \in L(M_x) = L_d$ - Ellentmondás Turing gép elfogadja saját leírását (Diagonál nyelv definíciója )
+	\end{enumerate}
+\end{bizonyitas}
+
+\begin{definicio}{Mézga Géza}
+	\textbf{Megállási nyelv ($L_h$)} \\[3pt]
+	 w\#x \ w,x $\in \lbrace 0,1 \rbrace^*$ w : TG leírás és $M_w$ az x bemeneten véges sok lépés után megáll\\[0pt]
+\end{definicio}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{Halting-problem}
+
+	  Nincs olyan TG, ami minden bemeneten véges sok lépés után megáll és az $L_h$ nyelvet fogadja el
+\end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ T.f.h lézetik ilyen. Legyen M TG, L(M) = $L_h$ , M minden bemeneten megáll
+
+	 Ebből M' TG az $L_d$ nyelvhez: M' egy w bemenetén - M-et szimuláljuk a w\# w bemeneten
+	 \begin{enumerate}[itemsep=0 mm]
+	 	 \item ha M elfogad $\Rightarrow$  $M_w$ megáll w bemeneten.
+	 	 \item M' szimulálja $M_w$-t w-n
+	 	 	\begin{enumerate}[itemsep=0 mm]
+			 	 \item elfogad $\Rightarrow$ M' utasítja el
+			 	 \item elutasít $\Rightarrow$ M' fogadja el
+			 \end{enumerate}
+		\item Ha M nem fogadja el $\Rightarrow$ $M_w$ nem áll meg $\Rightarrow$ M' elfogadó állapotba lép
+		\item M' minden bemeneten megáll, L(M') = $L_d$
+	 \end{enumerate}
+
+	 Olyan TG nincs ami az $L_d$ nyelvet fogadná el. Ellentmondás.
+
+	 \begin{center}
+  	 \includegraphics[scale=0.5 ]{img/algelBiz4}
+  \end{center}
+\end{bizonyitas}
+
+	 %TODO Church turing tézis???
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{Nem Det TG = Det TG}\\[3pt]
+	 Minden nem Determinisztikus Turing Géphez van olyan M' Determinisztikus TG, hogy L(M) = L(M')\\[4pt]
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ M: NTG, x: Bemenet, M-nek lesz egy számítási fája x-hez
+
+	Mit jelent, hogy M x-et elfogadja? Ha van elfogadó levél a számítási fában akkor elfogadja x-et.
+
+	Tehát M' célja egy elfogadó levelet találni! Ezt Szélességi bejárással ( BFS ) tudja megkeresni
+	\begin{enumerate}[itemsep=0mm]
+		\item Talál egy elfogadó levelet $\Rightarrow$ elfogad.
+		\item Bejárás véget ér elfogadó levév nélkül $\Rightarrow$ nem fogad el
+		\item Bejárás nem ér véget $\Rightarrow$ Eredeti M TG sem áll meg tehát, nem fogad el
+	\end{enumerate}
+\end{bizonyitas}

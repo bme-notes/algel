@@ -1,0 +1,129 @@
+\section{6. előadás}
+
+\subsection{Nyelvbe való tartozás eldöntése}
+
+\begin{definicio}{Mézga Géza}
+	\textbf{Időkorlátos TG} \\[3pt]
+	 Az M TG f(n) időkorlátos, ha minden x bemenetre teljesül, hogy M legfeljebb f($\mid x\mid$) lépésen belül megáll. \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	\textbf{Időkorlátos nem det TG} \\[3pt]
+	 Az M TG f(n) időkorlátos, ha minden x bemenetre teljesül, hogy minden számítási ágán M legfeljebb f($\mid x \mid$) lépésen belül megáll. \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{TG Polinom időkorlát} \\[3pt]
+	 Az M TG polinom időkorlátos, ha f(n) időkorlástos és f(n) polinom = O($n^2$) \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{P} \\[3pt]
+	 P azoknak a nyelveknek az osztálya, amelyekhez van polinom időkorlátos TG \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{P - Polinomiális Church-Turing Tézis} \\[3pt]
+	 P be azok a nyelvek tartoznak, melyekre van polinom idejű algoritmus \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{NP} \\[3pt]
+	 NP azoknak a nyelveknek az osztálya, amelyekhez van polinom időkorlátos nem Det. TG \\[0pt]
+\end{definicio}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{NP - Tanu tétel} \\[3pt]
+	 Az L nyelvre L $\in$ NP $\Leftrightarrow$ van olyan $c_1,c_2 > 0$ konstans és $L_1$ szópárokból álló nyelv, hogy $L_1 \in P$, $L = \lbrace x$-ekből áll hogy, van olyan y szó, hogy $(x,y) \in L_1, \mid y \mid \leq c_1\cdot \mid x \mid^{c_2} \rbrace $
+
+	 (y hossza polinom korlátos, ez az y a tanu, $L_1$ a megfelelő polinom idejű algoritmus = hatékony tanusítvány) \\[4pt]
+\end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+
+	 $\Rightarrow$
+
+	 $L \in NP \Rightarrow$ van olyan M Nem Det polinom időkorlátos TG, L(M) = L
+
+	 $L_1 : (x,y)$ - X bemenete M-nek, y egy elfogadó számítási út leírása
+
+	 azt kell látni a számítási úton hogy: $\mid y \mid \leq$ konstans időkorlát = $c_1\cdot \mid x \mid^{c_2}$
+
+	 $L_1 \in P$ A leírt számítási út létezik és elfogadó $\Leftarrow$ Ez polinom az M polinom időkorlátossága miatt\\[-3pt]
+
+	 $\Leftarrow$
+
+	 Adott az x, és azt akarjuk eldönteni hogy bele tartozik vagy nem. Csináljuk a következők: csinálunk egy Nem Det TG-t. és azt csináljuk hogy egy pontig generáljuk az összes lehetséges y-t. Tudjuk hogy milyen hosszút kell keresni mert megvan a hossza ( polinom korlátos ), majd mindegyikre ráültetjük az adott Turing Gépet, és megnézzük hogy ez az $(x,y_1)$ benne van e az $L_1$ ben.
+
+	\begin{enumerate}[itemsep=1mm]
+		\item Nem determinisztikus fázis, amikor y-t generálunk ($c_1\cdot \mid x \mid^{c_2}$  lépés legenerálni )
+		\item Majd pedig $L_1$ hez tartozó polinomiális futás idő
+	\end{enumerate}
+
+	Mindkettő helyen 1-1 polinom van, ezek együtt polinom időkorlátos nem det TG-t adnak ki. ha van jó y akkor van jó futása.\\[-2pt]
+
+	 PL: Hamilton körrel rendelkező gráfok. $L_1 = \lbrace (x,y):$ x gráf, y benne egy Hamilton kör $\rbrace$\\[0pt]
+\end{bizonyitas}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{coNP} \\[3pt]
+	 $coNP = \lbrace L : \overline{L} \in NP \rbrace$, $\overline{L} = \lbrace x : x \not\in L \rbrace$ \\[0pt]
+\end{definicio}
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   P $\subseteq$ NP, P $\subseteq$ coNP\\[4pt]
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+
+		\begin{enumerate}[itemsep=1mm]
+			\item mert $L \in P$ $\Rightarrow$ $\exists$ polinom időkorl M Det TG $\Rightarrow$ Ez felfogható Nem det TG ként is $\Rightarrow$ $L \in NP$
+			\item mert $L \in P$ $\Rightarrow$ $\exists$ polinom időkorlátos M DTG $\Rightarrow$ $L \in NP$, $\overline{L}$ - Pontosan akkor fogad el amikor L nem, mivel L polinom időbe megmondható $\overline{L}$ is, definició szerint pedig $overline{L} \in coNP$ mivel $L \in NP$
+		\end{enumerate}
+
+	 \textbf{Következmény:} $P\subseteq NP \cap coNP$\\[0pt]
+\end{bizonyitas}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{Karp-redukció} \\[3pt]
+	 Legyen $L_1,L_1 \subseteq \Sigma^*$ nyelv, $L_1$ karp redukálható $L_2$-re, ha van olyan $f: \Sigma^* \rightarrow \Sigma^*$ polinom időben számítható függvény, és $x \in L_1 \rightarrow f(x) \in L_2$\\[3pt]
+	 \textbf{Jel}: $L_1 \prec L_2$ \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{NP-teljesség} \\[3pt]
+	 NP-Teljes az L nyelv, ha $L\in NP$ és minden $L' \in NP$ nyelvre teljesül, hogy $L' \prec L$ \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{Bool formula} \\[3pt]
+	 x változókból, $\overline{x}$ negált változókból, $\cap , \cup$, zárójelekből áll \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{CNF - Konjunktív Normál Forma} \\[3pt]
+	 Zárojeleken belül változók vagyokkal, a záröjelek között pedig ések
+
+	 $(x_1 \cup x_2) \cap (\overline{x_2} \cup x_1) \cap \ldots$ \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{SAT} \\[3pt]
+	 $SAT = \lbrace \varphi (x_1,\ldots , x_n),$ $\varphi$ Bool formula és van olyan helyettesítés, amire $\varphi (b_1,\ldots ,b_n)$ igaz  $\rbrace$\\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{3SAT} \\[3pt]
+	 Ugyan az mint a sat, de egy zárójelben 3 változó állhat
+
+	 PL: $(x_1 \cup x_2 \cup x_3) \cap (\overline{x_2} \cup x_1 \cup \overline{x_3}) \cap \ldots$\\[0pt]
+\end{definicio}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{Cook-Levin SAT NP Teljes} \\[3pt]
+	 SAT NP-Teljes
+
+	 3SAT NP-Teljes\\[4pt]
+   \end{tetel}
+
+	 \notBiz\\[0pt]

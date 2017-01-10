@@ -1,0 +1,61 @@
+\section{4. előadás}
+\subsection{Verem Autómata - PDA}
+
+\begin{definicio}{Mézga Géza}
+  \textbf{Verem autómata elfogadása} \\[3pt]
+	 M elfogad egy x szót, ha van olyan számítása, ami végigolvassa az x-et és utána elfogadó állapotba jut. \\[0pt]
+\end{definicio}
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{CF ből $\Rightarrow$ PDA készítés} \\[3pt]
+  Minden G CF nyelvtanhoz van olyan PDA, ami az L(G) nyelvet elfogadja\\[4pt]
+  \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ Automata vázlat
+
+\begin{enumerate}[itemsep=1mm]
+\item Első állapotban csak a verem tetejére rakunk egy S-et (kezdő változó)
+\item Levezetési szabályoknak megfelelően nem determinisztikusan a verembe pakolgatjuk a megfelelő változókat annak függvényében hogy mi volt a bemenet/ választott elvezetési szabály
+\item Ha a verem alján látjuk a kezdő változót, akkor elfogadóba megyünk
+\end{enumerate}
+\end{bizonyitas}
+
+  	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{CF $\Leftrightarrow$ PDA} \\[3pt]
+  		Az L nyelv CF $\Leftrightarrow$ van olyan Verem autómata, ami az L-et fogadja el.
+\end{tetel}
+
+  		\notBiz \\[0pt]
+
+	\textbf{Következmény:} A reguláris nyelv CF is. ( Véges automata a verem spec esete) \\[0pt]
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{$\lbrace a^n b^n c^n \rbrace $} nem CF
+\end{tetel}
+
+  		\notBiz \\[0pt]
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   $\lbrace a^n b^n \rbrace \cup \lbrace a^n b^{2n} \rbrace $. CF, de nem determinisztikus.
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ Ötlet: Lenyeg hogy leirja benne hogy hogyan vezetné vissza $a^n b^n c^n$ re ami tudjuk hogy nem CF
+
+  		Bővebben: Jó CF nyelvtan: $S \rightarrow X \mid Y , X \rightarrow aXb \mid \epsilon , Y \rightarrow aYbb \mid \epsilon $
+
+  		Tegyük fel hogy van det PDA. 2 példányt keresünk belőle $M_1, M_2$. $M_1$ elfogadóiból kiinduló nyilak átmennek $M_2$ megfelelő állapotaiba.
+  		\begin{itemize}[itemsep=0 mm]
+  			\item $M_1$-beli elfogadók az újban nem elfogadók, az $M_2$ elfogadói igen, elfogadók.
+  			\item Minden $M_2$-beli b-t olvasó átmenetben b-t lecseréljük 'c'-re
+  			\item Kezdőállapot: $M_1$ kezdőállapot
+  		\end{itemize}
+  		Most így néz ki az összefűzött autómatánk:
+
+  \begin{center}
+  	 \includegraphics[scale=0.7 ]{img/algelBiz3}
+  \end{center}
+
+	Így viszont elfogadná az autómatánk az $a^nb^nc^n$-t, pedig ezt tudjuk hogy nem környezetfüggetlen ( ellentmondás ).
+\end{bizonyitas}

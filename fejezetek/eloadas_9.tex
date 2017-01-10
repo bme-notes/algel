@@ -1,0 +1,65 @@
+\section{9. előadás}
+
+\subsection{Közelítő algoritmusok}
+
+\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+ \textbf{Ládapakolás NP-Teljes  } \\[3pt]
+ \end{tetel}
+
+	 \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+    PARTÍCIÓ$\prec$ LÁDAPAKOLÁS
+
+	 $(a_1,a_2,\ldots,a_n) \rightarrow s_i = \dfrac{a_i}{\sum\limits_{j=0}^n \dfrac{a_j}{2 }} , 2$\\[3pt]
+	 Tehát a ládákat úgy alkotjuk meg hogy a súlyokat leosztjuk összsúly/2 vel , és megpróbáljuk bepréselni őket 2 ládába. Ez a 2 probléma ekkor ekvivalens lesz\\[0pt]
+\end{bizonyitas}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{FF $\leq$ 2 OPT } \\[3pt]
+    \end{tetel}
+
+	 \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+
+			 \begin{enumerate}[itemsep=1mm]
+			 	\item Minden láda (legfejlebb 1 kivételével) legalább félig van az FF után
+			 	\item bármely 2 ládában lévő tárgyak súlyösszege $\geq$ 1
+			 	\item legyen az FF által használt ládák száma k
+			 \end{enumerate}
+	 $$\dfrac{1}{2} (k-2) + 1 \leq \sum s_i$$ %TODO miért k-2???
+	 $$ k \leq 2 \sum s_i$$
+	 $$ OPT \geq \left\ulcorner \sum si \right\urcorner$$ %TODO szebb corner
+\end{bizonyitas}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{FF $\leq$ 1.7 OPT } \\[3pt]
+    \end{tetel}
+
+	 \notBiz \\[0pt]
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{FFD $\leq$ $\dfrac{11}{9} OPT + \dfrac{6}{9}$ } \\[3pt]
+    \end{tetel}
+
+	 \notBiz \\[0pt]
+
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    Ha az Utazóügynök problémára van polinom idejű c-közelítő algoritmus $\Rightarrow$ P = NP \\[3pt]
+    \end{tetel}
+
+	 \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+    \\[0pt] %TODO Szepen leirni
+\end{bizonyitas}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{Euklidészi Utazó Ügynök NP-Teljes} \\[3pt]
+    \end{tetel}
+
+	 \notBiz \\[0pt]
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{2 Közelítő algoritmus Euklidészi Utazóügynökre} \\[3pt]
+    \end{tetel}
+
+	 \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+    \\[0pt] %TODO Szepen leirni
+\end{bizonyitas}

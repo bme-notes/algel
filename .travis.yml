@@ -1,0 +1,27 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+    - texlive-xetex
+    - texlive-latex-extra
+    - lmodern
+    - texlive-latex-recommended
+    - xzdec
+    - texlive-fonts-recommended
+script:
+- tlmgr init-usertree
+- tlmgr option repository ftp://tug.org/historic/systems/texlive/2015/tlnet-final
+- tlmgr update --all
+- tlmgr install etoolbox tcolorbox framed polyglossia hyperref pgf xcolor
+- xelatex algel.tex
+- xelatex algel.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: UsPzU5sJyE+oC8xeauqA2w4mxAHgSVVojA/yA2sdqMiqkwqaLMSh0gVilpPicmZ8WfvlodsX73il2x18nqBKx8eU00ZRBYwj4qCRk6H4cfLo0axCx8mkKAJbY/X2RHAHTa4KcvuU45yjFNT3So/jhL5mKOLtpc5rS19osoUykw22f+wCOYwIXYk3eX0oupuC66X4RAWMHvqTC+JNDfUDrSY5sVCwh945jCKIJndpmnttSbXWyCuhFFmTzgJ2PJL5Xe16VjvGPdVOUJGQFL64Mmd4hsN5J8XGYygWfE/FLRsujUgfG4eJMakWDX+JnqTqIqA+Uh3ddKU3psQO6k6cEG2siJP8YOkUdKqvzBFjoa25ZDZYHnsmx25cfxngjBtgCCaZebspI/LPCrRvAd5F+/OJ8Hdi/hnpVL30elyjx8DV+ndpdBEmDfB7loSBxOni2JiPgqreYQQ6l47T7qPWwdG8IuiOF2wjwKv4/fObV0dMkhrzMl83oeKLiv6IxBHGC0Ed+dV99vSnwIXtCt1LUm0RJxfTcjBoOEUd1LqalPfmUHNFWM5smr8moXlkBj4osxIdW0U+Y0aO2WaYxdSxAD6/rMESVfbuHBNkkKZK7xsoFRNR/xz4EySN5hn56cehiUkMC5thUS9UzfidLgzrP9l/si43ObDBGB5LY2UqV4w=
+  file: algel.pdf
+  skip-cleanup: true
+  overwrite: true
+  on:
+    repo: bme-notes/algel

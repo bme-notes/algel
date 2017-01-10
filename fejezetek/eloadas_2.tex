@@ -1,0 +1,65 @@
+
+\section{2. előadás}
+\subsection{Autómaták}
+
+\begin{definicio}{Mézga Géza}
+	\textbf{Nyelv} \\[3pt]
+  Nyelv a $\Sigma$ felett $\Sigma^*$ egy lehetséges részhalmaza \\[0pt]
+\end{definicio}
+
+    \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+     \textbf{hiányos DVA $\Rightarrow$ DVA} \\[3pt]
+  Minden hiányos DVA-hoz van nem hiányos DVA, ami ugyan azt a nyelvet fogadja el\\[4pt]
+  \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ 'csapda' Ötlet - Új állapotba behúzni az összes hiányzó élet, majd pedig hurokélen ott tartani bármilyen bemenetre.\\[0pt]
+\end{bizonyitas}
+
+\begin{definicio}{Mézga Géza}
+   \textbf{Autómata Elfogadott nyelv} \\[3pt]
+  Az M autómata átal elfogdott nyelv $L(M) = \lbrace x\in \Sigma^* ,$ x-et M elfogadja $\rbrace$ \\[0pt]
+\end{definicio}
+
+   \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{NVM $\Rightarrow$ DVA} \\[3pt]
+  Minden Nem Determinisztikus (NVM) autómatához, van olyan M' DVA, hogy L(M) = L(M')\\[4pt]
+  \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ $M = (Q,\Sigma, \delta, q_0, F)$ NVA
+
+  \qquad$M' = (Q',\Sigma,\delta ', q_0, F')$ DVA
+
+  $Q' \subseteq Q$
+
+  1 állapot: $R \subseteq Q \delta '(R,a) = \bigcup\limits_{r \in R}\delta (R,a)$
+
+  \begin{center}
+  	 \includegraphics[scale=0.55 ]{img/algelBiz}
+  \end{center}
+\end{bizonyitas}
+
+\begin{definicio}{Mézga Géza}
+  \textbf{Reguláris nyelv} \\[3pt]
+  Reguláris nyelv az L, ha van M véges autómata, amire L(M) = L \\[0pt]
+\end{definicio}
+
+  \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{$a^n b^n$ nem Reguláris} \\[3pt]
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ Ötlet: Skatulya elv szerint lesz 2 ugyanabba az állapotba menő...
+
+  Bővebben: Tegyük fel hogy reguláris (indukció)
+
+  Ekkor van olyan DVA, hogy ezt a nyelvet elfogadja.Jelölje "t" a DVA állapotainak számát. Felbontás: $\Gorog{\epsilon} , a, aa,\ldots a^t$
+
+  Ha van t skatulya, és t+1 tárgyat belerakok, akkor lesz 2 olyan ami ugyanott ér véget. Tehát lesz kettő ami q állapotba ér véget.
+
+  \begin{center}
+  	 \includegraphics[scale=0.7 ]{img/algelBiz2}
+  \end{center}
+  Ekkor $a^kb^c$ is elfogadó állapotba jut, ami ellentmondás
+\end{bizonyitas}

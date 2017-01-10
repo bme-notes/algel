@@ -1,0 +1,62 @@
+\section{3. előadás}
+\subsection{Reguláris kifejezések}
+
+\begin{definicio}{Mézga Géza}
+	\textbf{Reguláris kifejezés} \\[3pt]
+  Reguláris kifejezés: $\emptyset$, $\epsilon$, $a$ $(\forall a \in \Sigma$ betűre $)$
+
+  Ha $r_1$ és $r_2$ reguláris kifejezés $\Rightarrow$ $r_1 + r_2$, $r_1 r_2$, $r_1^*$  is.  \\[0pt]
+\end{definicio}
+
+   \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{Reguláris nyelv - Regulár kifejezés} \\[3pt]
+  Az L nyelv Reguláris $\Leftrightarrow$ van olyan r reguláris kifejezés, hogy L(r) = L
+\end{tetel}
+
+\subsection{Környezetfüggetlen nyelv}
+
+\begin{definicio}{Mézga Géza}
+   \textbf{Környezetfüggetlen nyelvtan ( CF ) } \\[3pt]
+  Változókból és karaktereiből álló véges hosszú sorozat. $\Gorog{\alpha} \in (V \cup \Sigma)^* $
+
+  $A \rightarrow \Gorog{\alpha}$ , $A \in V$ ( Bal oldalt csak egy változó lehet )  \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+  \textbf{Levezetés G nyelvtanban } \\[3pt]
+  $S = \Gorog{\gamma}_0 \Rightarrow \Gorog{\gamma}_1 \Rightarrow \ldots \Rightarrow \Gorog{\gamma}_n$ , ahol $\Gorog{\gamma}_1 = \delta_1 A \delta_2 $
+
+  $\delta_1,\delta_2 \in (V \cup \Sigma), A \in V$ és $\Gorog{\gamma}_{i+1} = \delta_1 \Gorog{\alpha} \delta_2$ ahol $A \rightarrow \Gorog{\alpha}$ egy levezetési szabály \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+   \textbf{A G nyelvtan által generált nyelv } \\[3pt]
+   $L(G) = \lbrace x \in \Sigma^* :\ van\ S = \Gorog{\gamma}_0 \Rightarrow \Gorog{\gamma}_1 \Rightarrow \ldots \Rightarrow \Gorog{\gamma}_n = x$ levezetés$\rbrace$ \\[0pt]
+   %X benne van a nyelvtanban ha levezethető
+\end{definicio}
+
+\subsection{Egyértelműségek}
+
+\begin{definicio}{Mézga Géza}
+	\textbf{Szó egyértelműen levezethető} \\[3pt]
+   Egyértelműen levezethető az $x \in L(G)$ szó a G nyelvtanból, ha levezetési fája egyértelmű \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+    \textbf{Nyelvtan egyértelműség} \\[3pt]
+	 Egyértelmű a G nyelvtan, ha minden $x \in L(G)$ egyértelműen levezethető \\[0pt]
+\end{definicio}
+
+\begin{definicio}{Mézga Géza}
+	 \textbf{Nyelv egyértelműség} \\[3pt]
+	 Egyértelmű az L nyelv, ha van olyan G nyelvtan, ami egyértelmű és L(G) = L \\[0pt]
+\end{definicio}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{$\exists$ nem egyértelmű nyelv} \\[3pt]
+  Van nem egyértelmű nyelv
+
+  (azaz olyan Könyezetfüggetlen nyelv, amihez nincs egyértelmű CF nyelvtan )
+\end{tetel}
+
+  \notBiz

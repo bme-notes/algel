@@ -1,0 +1,92 @@
+\section{7. előadás}
+
+\subsection{NP-Teljes problémák}
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{Karp-Redukció tulajdonságai}
+	 \begin{enumerate}[itemsep=1mm]
+	 	\item $L_1 \prec L_2$ $\Rightarrow$ $\overline{L_1} \prec \overline{L_2}$
+	 	\item $L_1 \prec L_2$, $L_2 \in P$ $\Rightarrow L_1 \in P$
+	 	\item $L_1 \prec L_2$, $L_2 \in NP$ $\Rightarrow L_1 \in NP$
+
+	 	\item $L_1 \prec L_2$, $L_2 \in coNP$ $\Rightarrow L_1 \in coNP$
+
+	 	\item $L_1 \prec L_2$ és $L_2 \prec L_3$ $\Rightarrow$ $L_1 \prec L_3$ ( Tranzitív tul )
+	 \end{enumerate}
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+
+		\begin{enumerate}[itemsep=1mm]
+	 	\item Ugyan az az f jó a komplementerek között is
+	 	\item $x \in L_1$ ?? $\underbrace{ c_1 \cdot n^{c_2} }_\text{x re f(x) alkalmaz }$
+	 			$+$
+	 			$\underbrace{ d_1\cdot n^{d_2} \leq c_1 n^{c_2} + d_1 (c_1 n^{c_2})^d_2 \leq c\cdot n^{c_2 d_2} }_\text{x re használjuk L2 polinom idejű algoritmusát.}$  %TODO szepen leirni
+
+	 	\item Kell egy tanu, $L_2$ re van jó tanunk, ennek a felhasználásával is polinom időben megtudjuk oldani
+
+	 	\item $L_2 \in coNP \Leftrightarrow \overline L_2 \in NP$, $L_1 \prec L_2$
+	 	$\xrightarrow{1}$ $\overline{L_1} \prec \overline{L_2}
+	 	\xrightarrow{3} \overline {L_1} \in NP$
+	 	$\xrightarrow{Def} L_1 \in coNP$
+
+	 	\item 1) $x \in L1 \Leftrightarrow f(x) \in L_2$ f polinom időben számítható ( $c_1 n^{c_2}$ )
+
+	 	2) $y \in L_2 \Leftrightarrow g(y)  \in L_3$ y polinom időben számítható ( $d_1 n^{d_2}$ )
+
+	 	Analógia: $x \rightarrow f(x) \rightarrow g(f(x))$
+
+$x \in L_1 \Leftrightarrow f(x) \in L_2 \Leftrightarrow g(f(x)) \in L_3$
+
+	 	Tehát kell $g \circ f$ polinom időben számítható függvény.
+
+	 	\begin{enumerate}[itemsep=1mm]
+	 		\item f(x) ideje: $c_1 \mid x \mid^{c_2}$
+	 		\item g(f(x)) ideje: $d_1 \mid f(x)\mid^{d_2}$
+	 	\end{enumerate}
+
+	 	Felső becslés: $c \cdot \mid x\mid^{c_2\cdot d_2}$ ez pedig polinom
+
+
+	 \end{enumerate}
+\end{bizonyitas}
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   Ha L NP teljes és $L\in P$ akkor P = NP\\[3pt]
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+  Tudjuk, hogy L' nyelvre $L' \in P$
+
+	 	Mivel L NP teljes, ezért minden NP beli problémáról van rá karp redukció tehát: $L' \prec L \in P \Rightarrow L' \in P$\\[0pt]
+\end{bizonyitas}
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{3 Szín NP-Teljes} \\[3pt]
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ $3SAT \prec 3SZIN$ \\[0pt] %TODO Jobban leirni %TODO Elkerni
+\end{bizonyitas}
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{MAXFTL NP-Teljes} \\[3pt]
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+  $3SZIN \prec MAXFTL$ \\[0pt] %TODO Jobban leirni
+\end{bizonyitas}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{MAXKLIKK NP-Teljes} \\[3pt]
+    \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+  $MAXFTL \prec MAXKLIKK$
+
+	 \qquad\quad\qquad $(G,k) \rightarrow (\overline{G},k)$
+
+	 A független pontok a komplementerben klikket alkotnak\\[0pt]
+\end{bizonyitas}
+
+	 %TODO Felsorolni NP teljes problémákat?!

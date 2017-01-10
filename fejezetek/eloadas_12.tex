@@ -1,0 +1,61 @@
+\section{12. előadás}
+
+\subsection{Adatszerkezetek}
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+
+   \textbf{Binfa átlagos magasság/lépésszám felépítésnél} \\[3pt]
+	 Ha a kezdetben üres fával kiindulva beszúr egy sorozatát hajtjuk végre $\Rightarrow$ A magasság átlagosan
+
+	 O(log n), összes lépésszám: O(n log n)\\[4pt]
+   \end{tetel}
+
+	 \notBiz \\[0pt]
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+
+   \textbf{Binfa InOrder növekvő sorrend} \\[3pt]
+	 Bináris keresőfa InOrder bejárása növekvő sorrendben adja az elemeket.\\[4pt]
+   \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ Indukcióval n szerint. n = 1 - jó,n= 2 még mindig jó $\ldots$ $F_b, r ,F_j$ - Indukció miatt $F_b,F_j$ rendezett, r pedig keresőta tulajdonság miatt jó helyen van\\[0pt]
+\end{bizonyitas}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+
+    \textbf{Piros-fekete fa tárolt elemek} \\[3pt]
+	v gyökerű részfában tárolt elemek száma $\geq$ $2^{f_m(v)}-1$\\[4pt]
+  \end{tetel}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ Magasság szerint teljes indukció
+
+	 m(v) = 0. v levél $\Rightarrow$ $f_m$(v) = 0, elemek száma=0 = $2^0 - 1$
+
+	 m(v) $>$ 0. v nem levél, legyen v gyökér, x bal részfa, y jobb részfa $\Rightarrow$
+
+	 $f_m(v) \geq f_m(x), f_m(y)$ és
+
+	 $f_m(v) \leq f_m(x) + 1, f_m(y)+ 1$ - Ha x, vagy y fekete \\[0pt]
+
+	 Tehát az elemek száma $\geq$ gyökér + balrészfa + jobbrészfa = $ 1 + 2^{f_m(x)} - 1 + 2^{f_m(y)} -1$ = $ 2^{f_m(x)} + 2^{f_m(y)} -1 \geq 2^{f_m(x) -1}+ 2^{f_m(y) - 1} -1 = 2^{f_m(v)} -1$ %TODO talán azért van így az utolsó előtti lépés, mert legfeljebb 1 ben térhet el v és x,y fekete magassága, és levonva a -1 et biztos helyeset kapunk
+
+	 \textbf{Következmény:} n elemet tároló piros-fekete fa magassága $\leq$ 2log(n+1)
+\end{bizonyitas}
+
+\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+ v gyökérre $$n \geq 2^{f_m(v)} -1 \geq 2^{\frac{m(v)}{2}} -1$$
+	 $$n + 1 \geq 2^{\frac{m(v)}{2}}$$
+	 $$2 log(n+1) \geq m(v)$$
+\end{bizonyitas}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+
+    \textbf{Piros-fekete fa lépésszámok} \\[3pt]
+	 Beszúr,Töröl lépésszáma O(log n)
+
+	 A beszúr során legfeljebb 2 db forgatás, törlésnél legfeljebb 3 db\\[4pt]
+   \end{tetel}
+
+	 \notBiz

@@ -1,0 +1,51 @@
+\section{8. előadás}
+
+\subsection{NP-Teljes problémák}
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{3DM NP-Teljes  } \\[3pt]
+	Three Dimensional Matching NP-Teljes ( hármas párosítás )
+  \end{tetel}
+
+	 \notBiz  \\[0pt]
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{X3C NP-Teljes  } \\[3pt]
+	Exact Three Cover NP-Teljes ( hármas párosítás általános gráfban )\\[4pt]
+  \end{tetel}
+
+	\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+   $3DM \prec X3C$  \\[0pt]
+\end{bizonyitas}
+
+	 \begin{tetel}{MZ/X használhatatlan cuccokat küld}
+    \textbf{RÉSZGRÁFIZO NP-Teljes  } \\[3pt]
+		%$G_1, G_2$ gráfok adottak, $G_1$ $G_2$-vel izomorf részgráf-e?
+    \end{tetel}
+
+	\begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+
+		\begin{enumerate}[itemsep=1mm]
+			\item NP: Tanu: $G_2$ nek megfelelő csúcsok, illetve maga a megfeleltetés.
+
+				Leellenőrizzük hogy kölcsönösen egyértelmű-e a megfeleltetés. $G_1$ ben van él 2 csúcs között $\Rightarrow$ $G_2$ ben is. Ez megy polinom időben
+
+			\item NP-Nehézség:
+
+			$HAM \prec$ RÉSZGRÁFIZO
+
+				  \qquad$G \rightarrow (G,G_2)$
+
+				  $G_2$ egy n = $\mid V(G) \mid$ csúcsú kör. Megszámoljuk a csúcsokat és összekötjük őket. Ha bal oldalt van Hamilton kör, akkor jobb oldalt pontosan akkor fog egyezni$\ldots$ %TODO Itt nem baj ha a csúcsok nem ugyan olyan sorrendben vannak a körben?
+		\end{enumerate}
+\end{bizonyitas}
+
+	\begin{tetel}{MZ/X használhatatlan cuccokat küld}
+   \textbf{Egészértékű Programozás NP-Teljes  } \\[3pt]
+   \end{tetel}
+
+	 \begin{bizonyitas}{Hufnágel Pisti jobb ember, mint Mézga Géza}
+    $MAXFTL \prec EP$
+
+	 (Szinte bármilyen NP-Teljes nyelv megfogalmazható egészértékű programozásként, mely egy jó Karp-redukció is egyben)\\[0pt]
+\end{bizonyitas}
